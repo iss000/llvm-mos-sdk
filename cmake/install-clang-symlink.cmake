@@ -6,5 +6,6 @@ function(install_clang_symlink bindir platform suffix)
 
   execute_process(
     COMMAND ${CMAKE_COMMAND} -E create_symlink mos-${suffix} ${file}
-    WORKING_DIRECTORY ${bindir})
+    # @iss: WORKING_DIRECTORY ${bindir})
+    WORKING_DIRECTORY $ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}${bindir})
 endfunction()
